@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const questions = require('../../../functions/asking_questions/asking_questions');
+const answers = require('../../../functions/answering_questions/answering_questions');
 
-router.post('/create', (req, res) => questions.CreateQuestion(req, res));
+router.post('/create', (req, res) => answers.CreateAnswer(req, res));
 
 module.exports = router
