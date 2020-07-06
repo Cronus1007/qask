@@ -2,8 +2,8 @@ const Models = require('../../models/index');
 
 module.exports = {
     CreateQuestion: (req, res) => {
-        try {
-            Models.asking_questions.create({
+        // try {
+        Models.asking_questions.create({
                 SubjectId: req.body.SubjectId,
                 notes: req.body.notes,
                 link: req.body.link,
@@ -20,10 +20,10 @@ module.exports = {
                     data: u.id
                 })
             })
-        } catch (error) {
-            return res.send({
-                message: "failed"
-            })
-        }
+            // } catch (error) {
+            //     return res.send({
+            //         message: "failed"
+            //     })
+            // }
     }
 }

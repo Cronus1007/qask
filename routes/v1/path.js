@@ -10,7 +10,7 @@ const ratings = require('./tutor_ratings/tutor_ratings');
 const tutors = require('./tutors/tutors')
 
 router.use('/students', students)
-router.use('askingQuestions', questions);
+router.use('/askingQuestions', questions);
 router.use('/answeringQuestions', answers);
 router.use('/subjects', subjects)
 router.use('/doubts', doubts);

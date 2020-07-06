@@ -3,7 +3,7 @@ const {
     Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class asking_qusetions extends Model {
+    class asking_questions extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -11,29 +11,29 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            asking_qusetions.belongsTo(models.Students, {
+            asking_questions.belongsTo(models.Students, {
                 foreignKey: "StudentId",
                 as: "Students"
             })
-            asking_qusetions.hasMany(models.Doubts, {
-                foreignKey: "QuestionId",
+            asking_questions.hasMany(models.Doubts, {
+                foreignKey: "QuesId",
                 as: "Doubts"
             })
-            asking_qusetions.belongsTo(models.subjects, {
-                foreignKey: "SujectId",
+            asking_questions.belongsTo(models.subjects, {
+                foreignKey: "SubjectId",
                 as: "subjects"
             })
-            asking_qusetions.belongsTo(models.classes, {
+            asking_questions.belongsTo(models.classes, {
                 foreignKey: "ClassId",
                 as: "classes"
             })
-            asking_qusetions.hasMany(models.answering_questions, {
+            asking_questions.hasMany(models.answering_questions, {
                 foreignKey: "AnswerId",
-                as: "answering_qusetions"
+                as: "answering_questions"
             })
         }
     };
-    asking_qusetions.init({
+    asking_questions.init({
         SubjectId: DataTypes.INTEGER,
         notes: DataTypes.STRING,
         link: DataTypes.STRING,
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         AnswerId: DataTypes.INTEGER
     }, {
         sequelize,
-        modelName: 'asking_qusetions',
+        modelName: 'asking_questions',
     });
-    return asking_qusetions;
+    return asking_questions;
 };
