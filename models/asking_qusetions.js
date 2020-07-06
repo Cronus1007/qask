@@ -50,5 +50,3 @@ module.exports = (sequelize, DataTypes) => {
     });
     return asking_qusetions;
 };
-return asking_qusetions;
-};
