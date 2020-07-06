@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: "AnswerId",
                 as: "asking_questions"
             })
+            answering_questions.belongsTo(models.tutors, {
+                foreignKey: "TutorId",
+                as: "tutors"
+            })
         }
     };
     answering_questions.init({
