@@ -48,7 +48,8 @@ module.exports = {
     DeleteRating: (req, res) => {
         try {
             Models.tutor_ratings.destroy({
-                    where: { id: req.params.id }
+                    where: { id: req.params.id },
+                    truncate: { cascade: true }
                 })
                 .then(() => { return res.sendStatus(200) })
         } catch (error) {
