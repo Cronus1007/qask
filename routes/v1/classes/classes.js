@@ -2,7 +2,6 @@ const router = require('express').Router();
 
 const classes = require('../../../functions/classes/classes')
 
-router.post('/create', (req, res) => classes.CreateClass(req, res));
 
 router.post('/create', (req, res) => classes.CreateClass(req, res));
 router.get('/read', (req, res) => classes.GetClass(req, res))
