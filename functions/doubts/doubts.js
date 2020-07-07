@@ -20,5 +20,45 @@ module.exports = {
                 message: "failed"
             })
         }
+    },
+    GetDoubt: (req, res) => {
+        try {
+            Models.Doubts.findOne({
+                    where: { id: req.params.id }
+                })
+                .then(doubt => { return res.send(doubt) })
+        } catch (error) {
+            return res.sendStatus(500)
+        }
+    },
+    UpdateDoubt: (req, res) => {
+        try {
+            Models.Doubts.update({
+                    QuesId: req.body.QuesId,
+                    doubt: req.body.doubt,
+                    doubtImage: req.body.doubtImage,
+                    answer: req.body.answer,
+                    answerImage: req.body.answerImage
+                }, {
+                    where: { id: req.params.id }
+                })
+                .then(doubt => {
+                    return res.send(doubt)
+                })
+        } catch (error) {
+            return res.sendStatus(500)
+        }
+    },
+    DeleteDoubt: (req, res) => {
+        try {
+            Models.Doubts.destroy({
+                    where: { id: req.params.id }
+                })
+                .then(() => {
+                    return res.sendStatus(200)
+                })
+        } catch (error) {
+            return res.sendStatus(500)
+        }
     }
 }
