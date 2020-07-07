@@ -17,5 +17,18 @@ module.exports = {
                 message: "failed"
             })
         }
+    },
+    GetClass: (req, res) => {
+        try {
+            Models.classes.findOne({
+                where: { id: req.params.id }
+            }).then(classes => {
+                return res.send({
+                    classes
+                })
+            })
+        } catch (error) {
+            return res.sendStatus(500)
+        }
     }
 }
